@@ -1,6 +1,5 @@
 <?php
-$mem = memory_get_usage()/(1024*1024);
-echo $mem;
+
 class Tril
 {
 
@@ -31,7 +30,6 @@ class Tril
     }
 }
 
-$mem = memory_get_usage();
 $tril = new Tril();
 $arr  = [ "apple", "banana", "cin" ];
 foreach ($arr as $one) {
