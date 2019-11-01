@@ -1,5 +1,6 @@
 <?php
-
+$mem = memory_get_usage()/(1024*1024);
+echo $mem;
 class Tril
 {
 
@@ -15,8 +16,6 @@ class Tril
         $evalString .= '["isEnd"]=1;';
 
         eval($evalString);
-
-        //echo $evalString;
     }
 
 
@@ -28,12 +27,11 @@ class Tril
         }
         $evalString .= '["isEnd"]);';
 
-        //echo $evalString;
-
         return eval($evalString);
     }
 }
 
+$mem = memory_get_usage();
 $tril = new Tril();
 $arr  = [ "apple", "banana", "cin" ];
 foreach ($arr as $one) {
@@ -42,8 +40,7 @@ foreach ($arr as $one) {
 
 $arr = [ "apple", "orange" ];
 foreach ($arr as $one) {
-    $res = $tril->find($one);
-    //var_dump($res);
+    $res    = $tril->find($one);
     $isInIt = $res ? '' : 'not';
     echo " $one is " . $isInIt . " in it.\n";
 }
