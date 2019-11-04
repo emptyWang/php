@@ -30,8 +30,20 @@ class Tril
     }
 }
 
+$mem = memory_get_usage();
+
 $tril = new Tril();
-$arr  = [ "apple", "banana", "cin" ];
+
+$mem = memory_get_usage() - $mem;
+echo $mem."\n";
+$str = str_repeat("a", 10000);
+$tril->insert($str);
+$mem = memory_get_usage() - $mem;
+echo $mem."\n";
+die;
+
+
+$arr = [ "apple", "banana", "cin" ];
 foreach ($arr as $one) {
     $tril->insert($one);
 }
